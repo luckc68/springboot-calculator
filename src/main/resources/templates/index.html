@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-center py-10">
+    <h1 class="text-3xl font-bold mb-6">Simple Calculator</h1>
+    <form method="post" action="/calculate" class="space-y-4">
+        <input type="number" step="any" name="num1" class="border rounded p-2" placeholder="Number 1" required />
+        <input type="number" step="any" name="num2" class="border rounded p-2" placeholder="Number 2" required /><br/>
+        <div class="space-x-2">
+            <button name="operation" value="+" class="bg-blue-500 text-white px-4 py-2 rounded">+</button>
+            <button name="operation" value="-" class="bg-blue-500 text-white px-4 py-2 rounded">-</button>
+            <button name="operation" value="*" class="bg-blue-500 text-white px-4 py-2 rounded">&times;</button>
+            <button name="operation" value="/" class="bg-blue-500 text-white px-4 py-2 rounded">÷</button>
+        </div>
+    </form>
+    <div class="mt-6 text-xl text-green-700" th:if="${result != null}">
+        Result: <span th:text="${result}"></span>
+    </div>
+</body>
+</html>
